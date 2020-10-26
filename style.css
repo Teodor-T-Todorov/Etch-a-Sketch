@@ -1,11 +1,23 @@
-
-#container {
+#gridContainer {
     display: grid;
-    grid-template-rows: repeat(var(--grid-rows), 1fr);
-    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    grid-template-rows: repeat(var(--grid-rows), 30px);
+    grid-template-columns: repeat(var(--grid-cols), 30px);
+    border: 1px red solid;
+    overflow: hidden;
 }
 
 .grid-item{
     padding: 1em;   
     text-align: center;
+}
+
+.buttons{
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
