@@ -1,29 +1,34 @@
 const gridContainer = document.getElementById('gridContainer');
 
-function makeGrid(rows,cols){
+let isThereGrid = false;
 
-    gridContainer.style.setProperty('--grid-rows', rows);
-    gridContainer.style.setProperty('--grid-cols', cols);
+function makeGrid(){
+    if(isThereGrid = true)
+    {
+        gridContainer.innerHTML = "";
+    }
 
-    for(i = 0; i < (rows*cols); i++){
+    let size = Number(prompt("Type a number for nxn size"));
+    gridContainer.style.setProperty('--grid-rows', size);
+    gridContainer.style.setProperty('--grid-cols', size);
+
+    for(i = 0; i < (size*size); i++){
         let cell = document.createElement('div');
         gridContainer.appendChild(cell).className = "grid-item";
     }
+
+    const gridItem = document.getElementsByClassName('grid-item');
+
+    Array.from(gridItem).forEach(elem => 
+        elem.addEventListener('mouseover', () => {elem.style.background = 'black';})
+    );
+
+    isThereGrid = true;
 }
 
-makeGrid(16,16);
-
-const gridItem = document.getElementsByClassName('grid-item');
-
-Array.from(gridItem).forEach(elem => 
-    elem.addEventListener('mouseover', () => {elem.style.background = 'black';})
-);
-
-const menuContainer = document.getElementById('menu');
 const button = document.querySelector('button');
-button.addEventListener('click', () => {
-    Array.from(gridItem).forEach(elem => 
-        elem.style.background = 'white')
-})
+
+button.addEventListener('click', makeGrid)
+
 
 
