@@ -8,10 +8,12 @@
 
 #gridContainer {
     display: grid;
-    grid-template-rows: repeat(var(--grid-rows), 10px);
-    grid-template-columns: repeat(var(--grid-cols), 10px);
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
     border: 1px lightskyblue solid;
     overflow: hidden;
+    width:  32.552083333333336vw;
+    height: 69.25207756232687vh;
 }
 
 .grid-item{   
