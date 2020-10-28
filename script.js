@@ -1,14 +1,15 @@
-const gridContainer = document.getElementById('gridContainer');
-
-let isThereGrid = false;
+const gridContainer = document.querySelector('#gridContainer');
 
 function makeGrid(){
-    if(isThereGrid = true)
+    gridContainer.innerHTML = "";
+    
+    let size = Number(prompt("Type a number for nxn size grid. Limit is 64"));
+
+    if(size > 64)
     {
-        gridContainer.innerHTML = "";
+        makeGrid();
     }
 
-    let size = Number(prompt("Type a number for nxn size"));
     gridContainer.style.setProperty('--grid-rows', size);
     gridContainer.style.setProperty('--grid-cols', size);
 
@@ -17,18 +18,25 @@ function makeGrid(){
         gridContainer.appendChild(cell).className = "grid-item";
     }
 
-    const gridItem = document.getElementsByClassName('grid-item');
+    const gridItem = document.querySelectorAll('.grid-item');
 
     Array.from(gridItem).forEach(elem => 
-        elem.addEventListener('mouseover', () => {elem.style.background = 'black';})
+        elem.addEventListener('mouseover', () => {elem.style.background = '#' + Math.floor(Math.random()*16777215).toString(16)})
     );
 
-    isThereGrid = true;
 }
 
-const button = document.querySelector('button');
+function clearGrid(){
+    const gridItem = document.getElementsByClassName('grid-item');
+    Array.from(gridItem).forEach(elem => elem.style.background = 'white')
+}
 
-button.addEventListener('click', makeGrid)
+const bSize = document.querySelector('#size');
+const bReset = document.querySelector('#reset');
+
+bSize.addEventListener('click', makeGrid)
+bReset.addEventListener('click', clearGrid)
+
 
 
 
