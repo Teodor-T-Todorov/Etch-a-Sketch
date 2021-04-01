@@ -1,5 +1,6 @@
 const gridContainer = document.querySelector('#gridContainer');
 
+
 function makeGrid(){
     gridContainer.innerHTML = "";
     
@@ -9,6 +10,8 @@ function makeGrid(){
     {
         makeGrid();
     }
+
+    //Generate grid boxes
 
     gridContainer.style.setProperty('--grid-rows', size);
     gridContainer.style.setProperty('--grid-cols', size);

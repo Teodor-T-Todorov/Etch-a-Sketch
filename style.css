@@ -1,10 +1,16 @@
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+}
 #container{
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 
 #gridContainer {
     display: grid;
@@ -12,12 +18,13 @@
     grid-template-columns: repeat(var(--grid-cols), 1fr);
     border: 1px lightskyblue solid;
     overflow: hidden;
-    width:  32.552083333333336vw;
-    height: 69.25207756232687vh;
+    width:  275px;
+    height: 275px;
 }
 
 .grid-item{   
     text-align: center;
+    border: thin black;
 }
 
 .buttons{
